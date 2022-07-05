@@ -18,7 +18,7 @@ class OpenFile {
       {String? type,
       String? uti,
       String linuxDesktopName = "xdg",
-      bool enablePreview = true,
+      bool enablePreview = false,
       bool linuxByProcess = false}) async {
     assert(filePath != null);
     if (!Platform.isIOS && !Platform.isAndroid) {

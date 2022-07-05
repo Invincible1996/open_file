@@ -18,6 +18,7 @@ class OpenFile {
       {String? type,
       String? uti,
       String linuxDesktopName = "xdg",
+      bool enablePreview = true,
       bool linuxByProcess = false}) async {
     assert(filePath != null);
     if (!Platform.isIOS && !Platform.isAndroid) {
@@ -49,10 +50,11 @@ class OpenFile {
                   : "there are some errors when open $filePath${Platform.isWindows ? "   HINSTANCE=$_windowsResult" : ""}");
     }
 
-    Map<String, String?> map = {
+    Map<String, dynamic> map = {
       "file_path": filePath!,
       "type": type,
       "uti": uti,
+      "enable_preview":enablePreview,
     };
     final _result = await _channel.invokeMethod('open_file', map);
     final resultMap = json.decode(_result) as Map<String, dynamic>;

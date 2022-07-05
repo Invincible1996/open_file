@@ -115,15 +115,15 @@ static NSString *const CHANNEL_NAME = @"open_file";
 //                 }
 //             }
             @try {
-                BOOL enablePreview = call.arguments[@"enable_preview"];
-                if(!enablePreview){
+                // BOOL enablePreview = call.arguments[@"enable_preview"];
+                // if(!enablePreview){
                   [_documentController presentOpenInMenuFromRect:CGRectMake(500,20,100,100) inView:_viewController.view animated:YES];
-                }else{
-                BOOL previewSucceeded = [_documentController presentPreviewAnimated:YES];
-                if(!previewSucceeded){
-                  [_documentController presentOpenInMenuFromRect:CGRectMake(500,20,100,100) inView:_viewController.view animated:YES];
-                }
-                }
+                // }else{
+                // BOOL previewSucceeded = [_documentController presentPreviewAnimated:YES];
+                // if(!previewSucceeded){
+                  // [_documentController presentOpenInMenuFromRect:CGRectMake(500,20,100,100) inView:_viewController.view animated:YES];
+                // }
+                // }
             }@catch (NSException *exception) {
                 NSDictionary * dict = @{@"message":@"File opened incorrectly。", @"type":@-4};
                 NSData * jsonData = [NSJSONSerialization dataWithJSONObject:dict options:NSJSONWritingPrettyPrinted error:nil];
